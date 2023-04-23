@@ -1,7 +1,16 @@
 <table>
   <tr>
     <td><a routerLink="">Home</a></td>
-    <td><a routerLink="todos">Todos</a></td>
+    <td><a routerLink="profile" *ngIf="isLoggedIn()">Profile</a></td>
+
+    <td>
+      <div *ngIf="isLoggedIn()">You're logged in <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button></div>
+    </td>
+    <td>
+      <div *ngIf="!isLoggedIn()">You're not logged in <button *ngIf="!isLoggedIn()" (click)="login()">Login</button>
+      </div>
+    </td>
+
   </tr>
 </table>
 

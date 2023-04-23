@@ -1,22 +1,20 @@
-import { MsalGuard } from './../../msal.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { TodosComponent } from './todos.component';
+import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TodosComponent//,
-    // canActivate: [MsalGuard]
+    component: ProfileComponent
   }
 ];
 
 @NgModule({
-  declarations: [TodosComponent],
+  declarations: [ProfileComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ]
 })
-export class TodosModule { }
+export class ProfileModule { }
