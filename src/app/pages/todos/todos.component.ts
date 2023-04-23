@@ -1,3 +1,4 @@
+import { MsalService } from '@azure/msal-angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private msalService: MsalService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.msalService.instance.handleRedirectPromise().then(
+      res => {
+        if (res != null && res.account != null) {
+          this.msalService.instance.setActiveAccount(res.account);
+        }
+      }
+    );
+  }
+
+  isLoggedIn(): boolean {
+    return this.msalService.instance.getActiveAccount() != null;
+  }
+
+  login() {
+    this.msalService.loginRedirect();
+  }
+
+  logout() {
+    this.msalService.logout();
+  }
+
+  getUsername(): string {
+    return this.msalService.instance.getActiveAccount()?.name??'';
   }
 
 }

@@ -1,3 +1,16 @@
+<table>
+  <tr>
+    <td>
+      <div *ngIf="isLoggedIn()">You're logged in <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button></div>
+    </td>
+    <td>
+      <div *ngIf="!isLoggedIn()">You're not logged in <button *ngIf="!isLoggedIn()" (click)="login()">Login</button>
+      </div>
+    </td>
+  </tr>
+</table>
+
 <p>
   todos works!
 </p>
+<h2 *ngIf="isLoggedIn()">Welcome, {{ getUsername() }}</h2>
