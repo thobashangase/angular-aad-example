@@ -18,9 +18,9 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     AppRoutingModule,
     MsalModule.forRoot(new PublicClientApplication({
       auth: {
-        clientId: '62b80d34-155e-4d31-9ac4-bc6d5689d7e3',
-        authority: 'https://login.microsoftonline.com/85644a9f-0a28-4444-aea9-1010c3692a43',
-        redirectUri: 'http://localhost:4200', // Change this to redirect to the page that initiated the login process
+        clientId: '<Your Client ID>',
+        authority: 'https://login.microsoftonline.com/<Your Tenant ID> or commom',
+        redirectUri: '<Your Redirect URL>', // Change this to redirect to the page that initiated the login process
         navigateToLoginRequestUrl: true
       },
       cache: {
