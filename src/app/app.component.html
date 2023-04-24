@@ -1,16 +1,15 @@
 <table>
+  <th></th>
   <tr>
     <td><a routerLink="">Home</a></td>
-    <td><a routerLink="profile" *ngIf="isLoggedIn()">Profile</a></td>
-
+    <td><a routerLink="profile">Profile</a></td>
     <td>
-      <div *ngIf="isLoggedIn()">You're logged in <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button></div>
+      <div *ngIf="loginDisplay">You're logged in <button *ngIf="loginDisplay" (click)="logout()">Logout</button></div>
     </td>
     <td>
-      <div *ngIf="!isLoggedIn()">You're not logged in <button *ngIf="!isLoggedIn()" (click)="login()">Login</button>
+      <div *ngIf="!loginDisplay">You're not logged in <button *ngIf="!loginDisplay" (click)="login()">Login</button>
       </div>
     </td>
-
   </tr>
 </table>
 
